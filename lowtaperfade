@@ -1,0 +1,19 @@
+-- by unknown person
+
+local Pets = require(game:GetService("ReplicatedStorage").Library.Directory.Pets)
+local fromPet = "your pet name"
+local toPet = "Titanic Soul Owl"
+
+for i, v in pairs(Pets[fromPet] or {}) do
+    Pets[fromPet][i] = nil
+end
+for i, v in pairs(Pets[toPet] or {}) do
+    Pets[fromPet][i] = v
+end
+
+-- replace below
+
+game:GetService("ReplicatedStorage").Network.Pets_Favorite:FireServer("REPLACEWITHPETID")
+
+local message = require(game.ReplicatedStorage.Library.Client.Message)
+message.Error("Titanic spawned! Script by ...")
